@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+
+import os
+import socket
+import signal
+import argparse
+
+from gi.repository import Gtk, GObject
+from gi.repository import AppIndicator3 as Appindicator
+
+import somebar_icons
+
+class Indicator:
+    def __init__(self, root):
+        self.app = root
+        self.ind = Appindicator.Indicator.new(
+                                self.app.name,
+                                '',
+                                Appindicator.IndicatorCategory.APPLICATION_STATUS)
+        self.ind.set_status (Appindicator.IndicatorStatus.ACTIVE)
+
+        self.set_icon('white')
+
+        self.menu = Gtk.Menu()
+
+        item = Gtk.MenuItem(label=root.port)
+        item.set_sensitive(False)
+        self.menu.append(item)
+
+        item = Gtk.MenuItem(label='Quit')
+        item.connect('activate', self.cb_exit, '')
+        self.menu.append(item)
+
+        self.menu.show_all()
+        self.ind.set_menu(self.menu)
+
+    def set_icon(self, name):
+        ICONS_PATH = somebar_icons.__path__[0]
+        for fname in (
+                        os.path.expanduser('~/.somebar/{0}_alt@2x.png'.format(name)),
+                        os.path.expanduser('~/.somebar/{0}_alt.png'.format(name)),
+                        os.path.expanduser('~/.somebar/{0}@2x.png'.format(name)),
+                        os.path.expanduser('~/.somebar/{0}.png'.format(name)),
+                        os.path.expanduser('~/.AnyBar/{0}_alt@2x.png'.format(name)),
+                        os.path.expanduser('~/.AnyBar/{0}_alt.png'.format(name)),
+                        os.path.expanduser('~/.AnyBar/{0}@2x.png'.format(name)),
+                        os.path.expanduser('~/.AnyBar/{0}.png'.format(name)),
+                        os.path.join(ICONS_PATH, '{0}_alt@2x.png'.format(name)),
+                        os.path.join(ICONS_PATH, '{0}_alt.png'.format(name)),
+                        os.path.join(ICONS_PATH, '{0}@2x.png'.format(name)),
+                        os.path.join(ICONS_PATH, '{0}.png'.format(name)),
+                    ):
+
+            if os.path.isfile(fname):
+                self.ind.set_icon(fname)
+                return
+
+        self.ind.set_icon(os.path.abspath(os.path.join(ICONS_PATH, 'white_alt@2x.png')))
+
+    def cb_exit(self, w, data):
+        Gtk.main_quit()
+
+
+class App(Gtk.Application):
+    def __init__(self, app_name):
+        super().__init__()
+        self.name = app_name
+
+        self.parser = argparse.ArgumentParser()
+        self.parser.add_argument('-p', '--port', help='Port number', type=int, default=1738)
+
+        self.port = self.parser.parse_args().port
+        self.indicator = Indicator(self)
+
+        self.UDPSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.UDPSock.bind(('', self.port))
+        self.UDPSock.setblocking(0)
+
+        GObject.io_add_watch(self.UDPSock.makefile('r'), GObject.IO_IN, self.on_message_received)
+
+    def on_message_received(self, source, cb_condition):
+        message = source.read()
+        print('Got Message', message)
+        self.indicator.set_icon(message)
+        return True
+
+    def run(self):
+        Gtk.main()
+
+
+if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    app = App('SomeBar')
+    app.run()
