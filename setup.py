@@ -20,7 +20,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'Operating System :: Linux',
+        'Operating System :: POSIX :: Linux',
     ],
     package_data = {'somebar_icons' : ['*.png']},
     install_requires = [
