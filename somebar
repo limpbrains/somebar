@@ -81,6 +81,9 @@ class App(Gtk.Application):
     def on_message_received(self, source, cb_condition):
         message = source.read()
         print('Got Message', message)
+        if message == 'quit':
+            Gtk.main_quit()
+
         self.indicator.set_icon(message)
         return True
 

@@ -40,6 +40,8 @@ Following commands change color:
 <img src="somebar_icons/question@2x.png?raw=true" width=19 /> `question`
 <img src="somebar_icons/exclamation@2x.png?raw=true" width=19 /> `exclamation`
 
+And one special command forces somebar to quit: `quit`
+
 ## Running multiple instances
 
 You can run several instances of somebar as long as they listen on different ports. Use `-p` or `--port` command line argument to change port:
