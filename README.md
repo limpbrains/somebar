@@ -1,6 +1,6 @@
 # SomeBar
 
-Simple taskbar indicator for Unity inspired by [AnyBar](https://github.com/tonsky/AnyBar) (basically it is a clone of SomeBar)
+Simple taskbar indicator for Unity inspired by [AnyBar](https://github.com/tonsky/AnyBar) (basically it is a clone of AnyBar)
 
 Tested on Ubuntu 14.04
 
