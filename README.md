@@ -28,27 +28,16 @@ echo -n "black" | nc -4u -w0 localhost 1738
 Following commands change color:
 
 <img src="somebar_icons/white@2x.png?raw=true" width=19 /> `white`
-
 <img src="somebar_icons/red@2x.png?raw=true" width=19 /> `red`
-
 <img src="somebar_icons/orange@2x.png?raw=true" width=19 /> `orange`
-
 <img src="somebar_icons/yellow@2x.png?raw=true" width=19 /> `yellow`
-
 <img src="somebar_icons/green@2x.png?raw=true" width=19 /> `green`
-
 <img src="somebar_icons/cyan@2x.png?raw=true" width=19 /> `cyan`
-
 <img src="somebar_icons/blue@2x.png?raw=true" width=19 /> `blue`
-
 <img src="somebar_icons/purple@2x.png?raw=true" width=19 /> `purple`
-
 <img src="somebar_icons/black@2x.png?raw=true" width=19 /> `black`
-
 <img src="somebar_icons/question@2x.png?raw=true" width=19 /> `question`
-
 <img src="somebar_icons/exclamation@2x.png?raw=true" width=19 /> `exclamation`
-
 
 ## Running multiple instances
 
