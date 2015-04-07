@@ -11,7 +11,7 @@ setup(
     author = 'Ivan',
     author_email = 'ivan.vershigora@gmail.com',
     url = 'https://github.com/limpbrains/somebar',
-    download_url  ='https://github.com/limpbrains/somebar/tarball/0.0.1',
+    download_url  ='https://github.com/limpbrains/somebar/tarball/0.0.2',
     keywords = ['AnyBar', 'somebar', 'taskbar', 'indicator'],
     packages = find_packages(),
     long_description = open(join(dirname(__file__), 'README.md')).read(),
