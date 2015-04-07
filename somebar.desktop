@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Comment=Simple taskbar indicator
+Exec=somebar
+GenericName[en_US]=somebar
+GenericName=somebar
+Icon=somebar
+Name[en_US]=somebar
+Name=somebar
+Categories=Development;
+StartupNotify=false
+Terminal=false
+Type=Application

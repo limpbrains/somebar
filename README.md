@@ -4,7 +4,7 @@ Simple taskbar indicator for Unity inspired by [AnyBar](https://github.com/tonsk
 
 Tested on Ubuntu 14.04
 
-<img src="somebar.png?raw=true" />
+<img src="screenshot.png?raw=true" />
 
 ## Install
 
