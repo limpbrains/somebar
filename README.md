@@ -27,6 +27,7 @@ echo -n "black" | nc -4u -w0 localhost 1738
 
 Following commands change color:
 
+
 <img src="somebar_icons/white@2x.png?raw=true" width=19 /> `white`
 <img src="somebar_icons/red@2x.png?raw=true" width=19 /> `red`
 <img src="somebar_icons/orange@2x.png?raw=true" width=19 /> `orange`
