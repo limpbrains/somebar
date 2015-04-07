@@ -5,7 +5,7 @@ from os.path import join, dirname
 setup(
     name = 'somebar',
     scripts = ['somebar'],
-    version = '0.0.1',
+    version = '0.0.2',
     license = 'MIT License',
     description = 'Simple taskbar widget that displays color dot or custom icon',
     author = 'Ivan',
