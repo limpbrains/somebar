@@ -2,9 +2,11 @@
 
 Simple taskbar indicator for Unity inspired by [AnyBar](https://github.com/tonsky/AnyBar) (basically it is a clone of AnyBar)
 
-Tested on Ubuntu 14.04
+Tested on Ubuntu 18.04 with Unity and Ubuntu GNOME
 
-<img src="screenshot.png?raw=true" />
+<img src="screenshot_unity.png?raw=true" />
+
+<img src="screenshot_ubuntugnome.png?raw=true" />
 
 ## Install
 
